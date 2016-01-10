@@ -18,16 +18,16 @@ public class SelfDescribingObjectService {
     public static final String SET_PREFIX = "set";
 
     public static String[] getPublicMethodNameList(Object object, String methodPrefix) {
-        Method methods[] = object.getClass().getMethods();
-        ArrayList<String> nameArrayList = new ArrayList<String>();
+        Method[] methods = object.getClass().getMethods();
+        ArrayList<String> nameArrayList = new ArrayList<>();
 
         boolean notPrefixCheck = (methodPrefix == null) || methodPrefix.isEmpty();
 
         for (Method method: methods) {
             String name = method.getName();
-            if (notPrefixCheck || name.indexOf(methodPrefix) == 0)
+            if (notPrefixCheck || name.indexOf(methodPrefix) == 0) {
                 nameArrayList.add(name);
-
+            }
         }
 
         String[] methodNameList = new String[nameArrayList.size()];
@@ -37,8 +37,8 @@ public class SelfDescribingObjectService {
     }
 
     public static String[] getPublicFieldNameList(Object object) {
-        Field fields[] = object.getClass().getFields();
-        ArrayList<String> nameArrayList = new ArrayList<String>();
+        Field[] fields = object.getClass().getFields();
+        ArrayList<String> nameArrayList = new ArrayList<>();
 
         for (Field field: fields) {
             nameArrayList.add(field.getName());
@@ -64,10 +64,12 @@ public class SelfDescribingObjectService {
         String errorMessage = "";
         try {
             // Just check if field "fieldName" presents
-            if (onlyPublic)
+            if (onlyPublic) {
                 cls.getField(fieldName);
-            else
+            }
+            else {
                 cls.getDeclaredField(fieldName);
+            }
         } catch (SecurityException e) {
             errorMessage = MessageFormat.format(ACCESS_DENIED_TO_THE_FIELD_IN_CLASS_PATTERN, fieldName, cls.getName());
         } catch (NoSuchFieldException e) {
@@ -87,10 +89,12 @@ public class SelfDescribingObjectService {
         String errorMessage = "";
         try {
             // Just check if field "methodName" presents
-            if (onlyPublic)
-                cls.getMethod(methodName, null);
-            else
-                cls.getDeclaredMethod(methodName, null);
+            if (onlyPublic) {
+                cls.getMethod(methodName);
+            }
+            else {
+                cls.getDeclaredMethod(methodName);
+            }
         } catch (SecurityException e) {
             errorMessage = MessageFormat.format(ACCESS_DENIED_TO_THE_METHOD_IN_CLASS_PATTERN, methodName, cls.getName());
         } catch (NoSuchMethodException e) {
@@ -105,8 +109,6 @@ public class SelfDescribingObjectService {
     }
 
     public static ObjectProperty checkProperty(Object object, String propertyName) {
-        int index = -1;
-
         // Firstly think that a property is a field
         ObjectProperty objectProperty = new ObjectProperty(propertyName, ObjectProperty.PropertyType.field, propertyName);
 
@@ -115,7 +117,7 @@ public class SelfDescribingObjectService {
         if (!errorMessage.isEmpty()) {
             //  Try to find a field without case sensitive
             String[] fieldNameList = getPublicFieldNameList(object);
-            index = Utils.getIndexInStringArray(fieldNameList, propertyName, true);
+            int index = Utils.getIndexInStringArray(fieldNameList, propertyName, true);
             if (index != -1) {
                 objectProperty.setRealPropertyName(fieldNameList[index]);
                 errorMessage = "";
@@ -162,17 +164,16 @@ public class SelfDescribingObjectService {
 
         try {
             Class cls = Class.forName(className);
-            Class parameterTypes[] = new Class[1];
+            Class[] parameterTypes = new Class[1];
             parameterTypes[0] = double.class;
 
             try {
-                // Just check if field "methodName" presents
                 method = onlyPublic ? cls.getMethod(methodName, parameterTypes) :
                         cls.getDeclaredMethod(methodName, parameterTypes);
-            } catch (SecurityException | NoSuchMethodException e) {
+            } catch (NullPointerException | SecurityException | NoSuchMethodException e) {
                 e.printStackTrace();
             }
-        } catch (ClassNotFoundException e) {
+        } catch (NullPointerException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 

@@ -2,8 +2,6 @@ package com.company.files;
 
 import com.company.utils.SelfDescribingObject;
 
-import java.util.Date;
-
 /**
  * Created by Yevgen on 20.12.2015.
  */
@@ -13,8 +11,6 @@ public class SimpleFile extends SelfDescribingObject {
     public final static String UNKNOWN_FILE_TYPE = "Undefined File Type";
 
     private String fileName;
-    private Date creationDate;
-    private Date lastModifyDate;
     private String fileType = UNKNOWN_FILE_TYPE;
 
     public SimpleFile(String fileName) {
@@ -40,25 +36,5 @@ public class SimpleFile extends SelfDescribingObject {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-    public Date getLastModifyDate() {
-        return lastModifyDate;
-    }
-
-    public void setLastModifyDate(Date lastModifyDate) {
-        this.lastModifyDate = lastModifyDate;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public void readFile() {
-// Just a stub as an example
     }
 }

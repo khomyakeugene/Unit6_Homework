@@ -15,8 +15,6 @@ public class TestFileData {
     public final static String AUDIO_FILE_EXT = ".aud";
     public final static String IMAGE_FILE_EXT = ".img";
     public final static String TEXT_DATA_MESSAGE = "Text data: {0}";
-    public final static String AUDIO_DATA_MESSAGE = "Audio data: {0}";
-    public final static String IMAGE_DATA_MESSAGE = "Image data: {0}";
     public final static String FILE_DATA_MESSAGE = "File[{0}]: name - {1}, type - {2}";
     // --------------------------------------------------------------
 
@@ -100,30 +98,12 @@ public class TestFileData {
         Utils.writeMessage(Utils.getClassNameMessage(textFile));
         Utils.writeMessage(MessageFormat.format(TEXT_DATA_MESSAGE, textFile.getText()));
 
+        Utils.writeMessage(Utils.getClassNameMessage(audioFile));
+        Utils.writeMessage(Utils.getClassNameMessage(imageFile));
+
         // The first task of unit 6 homework
         Utils.inspectObjectProperties(textFile);
 // ---------------
-
-        String audioDataStringPresentation;
-        try {
-            audioDataStringPresentation = audioFile.getAudioData().toString();
-        } catch (Throwable e) {
-            audioDataStringPresentation = null;
-        }
-        Utils.writeMessage(Utils.getClassNameMessage(audioFile));
-        Utils.writeMessage(MessageFormat.format(AUDIO_DATA_MESSAGE, audioDataStringPresentation));
-// ---------------
-
-        String imageDataStringPresentation;
-        try {
-            imageDataStringPresentation = imageFile.getImage().toString();
-        } catch (Throwable e) {
-            imageDataStringPresentation = null;
-        }
-        Utils.writeMessage(Utils.getClassNameMessage(imageFile));
-        Utils.writeMessage(MessageFormat.format(IMAGE_DATA_MESSAGE, imageDataStringPresentation));
-        // ---------------
-
     }
 
     public void demonstrateFileData() throws IOException {

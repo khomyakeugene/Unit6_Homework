@@ -15,18 +15,6 @@ public class RoseBush extends FlowerBush {
         formFlowerBush(roseCount);
     }
 
-    public RoseBush(String colour, String scent) {
-        this(colour, scent, false, 1);
-    }
-
-    public RoseBush(String colour) {
-        this(colour, Rose.TYPICAL_ROSE_SCENT);
-    }
-
-    public RoseBush(String colour, int roseCount) {
-        this (colour, Rose.TYPICAL_ROSE_SCENT, false, roseCount);
-    }
-
     public Boolean getThorn() {
         return isThorn;
     }

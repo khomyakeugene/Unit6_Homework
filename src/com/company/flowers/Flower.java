@@ -22,10 +22,6 @@ public class Flower {
         setScent(scent);
     }
 
-    public Flower(String colour, String scent) {
-        this(UNKNOWN_FLOWER_TYPE, colour, scent);
-    }
-
     public Flower(String colour) {
         this(UNKNOWN_FLOWER_TYPE, colour, WITHOUT_SCENT_MESSAGE);
     }

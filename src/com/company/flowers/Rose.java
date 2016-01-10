@@ -26,10 +26,6 @@ public class Rose extends Flower {
         this(colour, TYPICAL_ROSE_SCENT);
     }
 
-    public Rose() {
-        this(null);
-    }
-
     public Boolean getThorn() {
         return isThorn;
     }

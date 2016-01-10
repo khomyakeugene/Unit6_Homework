@@ -5,7 +5,6 @@ package com.company.flowers;
  */
 
 public class FlowerBush extends FlowerSet {
-    public static final int MINIMUM_FLOWERS_IN_BUSH = 1;
     private String flowerType = null;
     private String colour = null;
     private String scent = Flower.WITHOUT_SCENT_MESSAGE;
@@ -18,15 +17,6 @@ public class FlowerBush extends FlowerSet {
         setScent(scent);
 
         formFlowerBush(flowerCount);
-    }
-
-    public FlowerBush(String flowerType, String colour, String scent) {
-        // At least, one <MINIMUM_FLOWERS_IN_BUSH> should be presented
-        this(flowerType, colour, scent, MINIMUM_FLOWERS_IN_BUSH);
-    }
-
-    public FlowerBush(String flowerType, String colour) {
-        this(flowerType, colour, Flower.WITHOUT_SCENT_MESSAGE);
     }
 
     public String getFlowerType() {

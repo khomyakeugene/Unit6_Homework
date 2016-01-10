@@ -17,7 +17,7 @@ public class Directory extends SimpleFile {
     public Directory(String fileName) {
         super(fileName, DIRECTORY_FILE_TYPE);
 
-        files = new HashMap<String, SimpleFile>();
+        files = new HashMap<>();
     }
 
     public void addFile(SimpleFile file) {

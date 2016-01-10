@@ -18,7 +18,7 @@ public class Utils {
     public final static String FULL_METHOD_NAME_PATTERN = "{0}.{1}";
     public final static String EXCEPTION_MESSAGE_PATTERN = "{0}: {1}";
     public final static String PLEASE_ENTER_A_PROPERTY_NAME_PATTERN =
-            "Please, enter name of a property of class {0} (or just type <Return> to stop):";
+            "Please, enter name of a property of class {0} (or just push <Enter> to stop):";
     public final static String PROPERTY_DESCRIPTION_PATTERN = "A {0} \"{1}\" is presented in class \"{2}\"";
     public final static String PLEASE_REPEAT_ENTER =
             "{0} was generated with data \"{1}\". Please, repeat enter action";
@@ -46,7 +46,7 @@ public class Utils {
     }
 
     public static String getFullMethodName() {
-        StackTraceElement stackTraceElement[] = Thread.currentThread().getStackTrace();
+        StackTraceElement[] stackTraceElement = Thread.currentThread().getStackTrace();
 
         return MessageFormat.format(
                 FULL_METHOD_NAME_PATTERN,

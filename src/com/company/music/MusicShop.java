@@ -17,11 +17,7 @@ public class MusicShop {
         setShopName(shopName);
 
         // Init "instruments space"
-        instruments = new Vector<MusicalInstrument>();
-    }
-
-    public MusicShop() {
-        this("");
+        instruments = new Vector<>();
     }
 
     public String getShopName() {
@@ -34,10 +30,6 @@ public class MusicShop {
 
     public void addInstrument(MusicalInstrument instrument) {
         instruments.add(instrument);
-    }
-
-    public void removeInstrument(MusicalInstrument instrument) {
-        instruments.remove(instrument);
     }
 
     public MusicalInstrument getInstrumentByIndex(int index) {
