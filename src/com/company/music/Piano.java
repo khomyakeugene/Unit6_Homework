@@ -1,12 +1,12 @@
 package com.company.music;
 
-import com.company.utils.Const;
-
 /**
  * Created by Yevgen on 21.12.2015.
  */
 public class Piano extends MusicalInstrument {
+    public final static String PIANO_INSTRUMENT_TYPE = "Piano";
+
     public Piano() {
-        super(Const.PIANO_INSTRUMENT_TYPE);
+        super(PIANO_INSTRUMENT_TYPE);
     }
 }

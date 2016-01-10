@@ -1,13 +1,13 @@
 package com.company.files;
 
-import com.company.utils.Const;
-
 import java.util.HashMap;
 
 /**
  * Created by Yevgen on 20.12.2015.
  */
 public class Directory extends SimpleFile {
+    public final static String DIRECTORY_FILE_TYPE = "Directory File Type";
+
     private HashMap<String, SimpleFile> files;
 
     public HashMap<String, SimpleFile> getFiles() {
@@ -15,7 +15,7 @@ public class Directory extends SimpleFile {
     }
 
     public Directory(String fileName) {
-        super(fileName, Const.DIRECTORY_FILE_TYPE);
+        super(fileName, DIRECTORY_FILE_TYPE);
 
         files = new HashMap<String, SimpleFile>();
     }

@@ -1,13 +1,12 @@
 package com.company.flowers;
 
-import com.company.utils.Const;
-
 import java.text.MessageFormat;
 
 /**
  * Created by Yevgen on 21.12.2015.
  */
 public class Flower {
+    public final static String UNKNOWN_FLOWER_TYPE = "Undefined Flower Type";
     public final static String WITHOUT_SCENT_MESSAGE = "without scent";
     public final static String FLOWER_DESCRIPTION_MESSAGE = "flower: {0}, colour: {1}, scent: {2}";
 
@@ -24,11 +23,11 @@ public class Flower {
     }
 
     public Flower(String colour, String scent) {
-        this(Const.UNKNOWN_FLOWER_TYPE, colour, scent);
+        this(UNKNOWN_FLOWER_TYPE, colour, scent);
     }
 
     public Flower(String colour) {
-        this(Const.UNKNOWN_FLOWER_TYPE, colour, WITHOUT_SCENT_MESSAGE);
+        this(UNKNOWN_FLOWER_TYPE, colour, WITHOUT_SCENT_MESSAGE);
     }
 
     public Flower() {

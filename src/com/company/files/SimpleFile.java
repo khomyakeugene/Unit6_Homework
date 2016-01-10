@@ -1,6 +1,5 @@
 package com.company.files;
 
-import com.company.utils.Const;
 import com.company.utils.SelfDescribingObject;
 
 import java.util.Date;
@@ -11,10 +10,12 @@ import java.util.Date;
 
 // Use <SelfDescribingObject> as a part of task of homework of Unit 6
 public class SimpleFile extends SelfDescribingObject {
+    public final static String UNKNOWN_FILE_TYPE = "Undefined File Type";
+
     private String fileName;
     private Date creationDate;
     private Date lastModifyDate;
-    private String fileType = Const.UNKNOWN_FILE_TYPE;
+    private String fileType = UNKNOWN_FILE_TYPE;
 
     public SimpleFile(String fileName) {
         setFileName(fileName);

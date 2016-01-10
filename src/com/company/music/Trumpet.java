@@ -1,12 +1,12 @@
 package com.company.music;
 
-import com.company.utils.Const;
-
 /**
  * Created by Yevgen on 21.12.2015.
  */
 public class Trumpet extends MusicalInstrument {
+    public final static String TRUMPET_INSTRUMENT_TYPE = "Trumpet";
+
     public Trumpet() {
-        super(Const.TRUMPET_INSTRUMENT_TYPE);
+        super(TRUMPET_INSTRUMENT_TYPE);
     }
 }

@@ -1,13 +1,12 @@
 package com.company.music;
 
-import com.company.utils.Const;
-
 import java.text.MessageFormat;
 
 /**
  * Created by Yevgen on 21.12.2015.
  */
 public class MusicalInstrument {
+    public final static String UNKNOWN_INSTRUMENT_TYPE = "Undefined Instrument Type";
     public final static String INSTRUMENT_DESCRIPTION_MESSAGE = "Instrument: {0}";
 
     private String instrumentType = null;
@@ -19,7 +18,7 @@ public class MusicalInstrument {
     }
 
     public MusicalInstrument() {
-        this(Const.UNKNOWN_INSTRUMENT_TYPE);
+        this(UNKNOWN_INSTRUMENT_TYPE);
     }
 
     public String getInstrumentType() {

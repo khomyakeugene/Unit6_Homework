@@ -1,15 +1,15 @@
 package com.company.files;
 
-import com.company.utils.Const;
-
 /**
  * Created by Yevgen on 20.12.2015.
  */
 public class TextFile extends SimpleFile {
+    public final static String TEXT_FILE_TYPE = "Text File Type";
+
     private String text;
 
     public TextFile(String fileName) {
-        super(fileName, Const.TEXT_FILE_TYPE);
+        super(fileName, TEXT_FILE_TYPE);
     }
 
     public TextFile(String fileName, String text) {

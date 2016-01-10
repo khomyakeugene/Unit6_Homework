@@ -1,7 +1,5 @@
 package com.company.flowers;
 
-import com.company.utils.Const;
-
 /**
  * Created by Yevgen on 21.12.2015.
  */
@@ -9,7 +7,7 @@ public class RoseBush extends FlowerBush {
     private Boolean isThorn = false;
 
     public RoseBush(String colour, String scent, Boolean isThorn, int roseCount) {
-        super(Const.ROSE_FLOWER_TYPE, colour, scent, 0);
+        super(Rose.ROSE_FLOWER_TYPE, colour, scent, 0);
 
         // Remember whether the thorns are presented
         setThorn(isThorn);
@@ -22,11 +20,11 @@ public class RoseBush extends FlowerBush {
     }
 
     public RoseBush(String colour) {
-        this(colour, Const.TYPICAL_ROSE_SCENT);
+        this(colour, Rose.TYPICAL_ROSE_SCENT);
     }
 
     public RoseBush(String colour, int roseCount) {
-        this (colour, Const.TYPICAL_ROSE_SCENT, false, roseCount);
+        this (colour, Rose.TYPICAL_ROSE_SCENT, false, roseCount);
     }
 
     public Boolean getThorn() {

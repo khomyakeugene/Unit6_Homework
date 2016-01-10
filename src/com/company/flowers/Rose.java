@@ -1,19 +1,19 @@
 package com.company.flowers;
 
-import com.company.utils.Const;
-
 import java.text.MessageFormat;
 
 /**
  * Created by Yevgen on 21.12.2015.
  */
 public class Rose extends Flower {
+    public final static String ROSE_FLOWER_TYPE = "Rose";
+    public final static String TYPICAL_ROSE_SCENT = "Typical rose scent";
     public final static String ROSE_DESCRIPTION_MESSAGE = "{0}, thorns present: {1}";
 
     private Boolean isThorn = false;
 
     public Rose(String colour, String scent, Boolean isThorn) {
-        super(Const.ROSE_FLOWER_TYPE, colour, scent);
+        super(ROSE_FLOWER_TYPE, colour, scent);
 
         setThorn(isThorn);
     }
@@ -23,7 +23,7 @@ public class Rose extends Flower {
     }
 
     public Rose(String colour) {
-        this(colour, Const.TYPICAL_ROSE_SCENT);
+        this(colour, TYPICAL_ROSE_SCENT);
     }
 
     public Rose() {

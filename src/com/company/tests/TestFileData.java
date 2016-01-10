@@ -1,7 +1,6 @@
 package com.company.tests;
 
 import com.company.files.*;
-import com.company.utils.Const;
 import com.company.utils.Utils;
 
 import java.io.IOException;
@@ -12,6 +11,15 @@ import java.util.HashMap;
  * Created by Yevgen on 21.12.2015.
  */
 public class TestFileData {
+    public final static String TEXT_FILE_EXT = ".txt";
+    public final static String AUDIO_FILE_EXT = ".aud";
+    public final static String IMAGE_FILE_EXT = ".img";
+    public final static String TEXT_DATA_MESSAGE = "Text data: {0}";
+    public final static String AUDIO_DATA_MESSAGE = "Audio data: {0}";
+    public final static String IMAGE_DATA_MESSAGE = "Image data: {0}";
+    public final static String FILE_DATA_MESSAGE = "File[{0}]: name - {1}, type - {2}";
+    // --------------------------------------------------------------
+
     public static final String TEST_TEXT = "Test Text";
     public static final String TEST_DIRECTORY = "Test Directory";
     public final static String PLEASE_ENTER_FILENAME_TO_SEARCH_IT_IN_DIRECTORY =
@@ -36,9 +44,9 @@ public class TestFileData {
 
     private void initFileData() {
         simpleFile = new SimpleFile(getTestFilename());
-        textFile = new TextFile(getTestFilename() + Const.TEXT_FILE_EXT, TEST_TEXT);
-        audioFile = new AudioFile(getTestFilename() + Const.AUDIO_FILE_EXT);
-        imageFile = new ImageFile(getTestFilename() + Const.IMAGE_FILE_EXT);
+        textFile = new TextFile(getTestFilename() + TEXT_FILE_EXT, TEST_TEXT);
+        audioFile = new AudioFile(getTestFilename() + AUDIO_FILE_EXT);
+        imageFile = new ImageFile(getTestFilename() + IMAGE_FILE_EXT);
     }
 
     private void initDirectoryData() {
@@ -55,7 +63,7 @@ public class TestFileData {
         Object[] directoryData = fileList.values().toArray();
 
         for (int i=0; i < commonCount; i++)
-            Utils.writeMessage(MessageFormat.format(Const.FILE_DATA_MESSAGE, i,
+            Utils.writeMessage(MessageFormat.format(FILE_DATA_MESSAGE, i,
                     ((SimpleFile)directoryData[i]).getFileName(),
                     ((SimpleFile)directoryData[i]).getFileType()));
         }
@@ -90,7 +98,7 @@ public class TestFileData {
 // ---------------
 
         Utils.writeMessage(Utils.getClassNameMessage(textFile));
-        Utils.writeMessage(MessageFormat.format(Const.TEXT_DATA_MESSAGE, textFile.getText()));
+        Utils.writeMessage(MessageFormat.format(TEXT_DATA_MESSAGE, textFile.getText()));
 
         // The first task of unit 6 homework
         Utils.inspectObjectProperties(textFile);
@@ -103,7 +111,7 @@ public class TestFileData {
             audioDataStringPresentation = null;
         }
         Utils.writeMessage(Utils.getClassNameMessage(audioFile));
-        Utils.writeMessage(MessageFormat.format(Const.AUDIO_DATA_MESSAGE, audioDataStringPresentation));
+        Utils.writeMessage(MessageFormat.format(AUDIO_DATA_MESSAGE, audioDataStringPresentation));
 // ---------------
 
         String imageDataStringPresentation;
@@ -113,7 +121,7 @@ public class TestFileData {
             imageDataStringPresentation = null;
         }
         Utils.writeMessage(Utils.getClassNameMessage(imageFile));
-        Utils.writeMessage(MessageFormat.format(Const.IMAGE_DATA_MESSAGE, imageDataStringPresentation));
+        Utils.writeMessage(MessageFormat.format(IMAGE_DATA_MESSAGE, imageDataStringPresentation));
         // ---------------
 
     }
