@@ -2,7 +2,6 @@ package com.company.tests;
 
 import com.company.files.*;
 import com.company.utils.Const;
-import com.company.utils.SelfDescribingObjectService;
 import com.company.utils.Utils;
 
 import java.io.IOException;
