@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.MessageFormat;
+import java.util.Scanner;
 
 /**
  * Created by Yevgen on 06.01.2016.
@@ -85,6 +86,21 @@ public class Utils {
                 writeMessage(MessageFormat.format(PLEASE_REPEAT_ENTER, e.getClass().getName(), e.getMessage()));
             }
         } while (true);
+    }
+
+
+    public static int readInputInt(String enterMessageInvitation) {
+        final Scanner scanner = new Scanner(System.in);
+
+        writeMessage(enterMessageInvitation);
+        return scanner.nextInt();
+    }
+
+    public static double readInputDouble(String enterMessageInvitation) {
+        final Scanner scanner = new Scanner(System.in);
+
+        writeMessage(enterMessageInvitation);
+        return scanner.nextDouble();
     }
 
     public static void inspectObjectProperties(SelfDescribingObject object) {
