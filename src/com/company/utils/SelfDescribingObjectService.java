@@ -18,15 +18,16 @@ public class SelfDescribingObjectService {
     public static final String SET_PREFIX = "set";
 
     public static String[] getPublicMethodNameList(Object object, String methodPrefix) {
-        Method method[] = object.getClass().getMethods();
+        Method methods[] = object.getClass().getMethods();
         ArrayList<String> nameArrayList = new ArrayList<String>();
 
-        boolean notPrefixCheck = (methodPrefix != null) || methodPrefix.isEmpty();
+        boolean notPrefixCheck = (methodPrefix == null) || methodPrefix.isEmpty();
 
-        for (int i = 0; i < method.length; i++) {
-            String name = method[i].getName();
+        for (Method method: methods) {
+            String name = method.getName();
             if (notPrefixCheck || name.indexOf(methodPrefix) == 0)
                 nameArrayList.add(name);
+
         }
 
         String[] methodNameList = new String[nameArrayList.size()];
@@ -36,11 +37,11 @@ public class SelfDescribingObjectService {
     }
 
     public static String[] getPublicFieldNameList(Object object) {
-        Field field[] = object.getClass().getFields();
+        Field fields[] = object.getClass().getFields();
         ArrayList<String> nameArrayList = new ArrayList<String>();
 
-        for (int i = 0; i < field.length; i++) {
-            nameArrayList.add(field[i].getName());
+        for (Field field: fields) {
+            nameArrayList.add(field.getName());
         }
 
         String[] methodNameList = new String[nameArrayList.size()];
@@ -154,5 +155,48 @@ public class SelfDescribingObjectService {
         objectProperty.setErrorMessage(errorMessage);
 
         return objectProperty;
+    }
+
+    public static Method searchOneDoubleArgumentMethod(String className, String methodName, boolean onlyPublic) {
+        Method method = null;
+
+        try {
+            Class cls = Class.forName(className);
+            Class parameterTypes[] = new Class[1];
+            parameterTypes[0] = double.class;
+
+            try {
+                // Just check if field "methodName" presents
+                method = onlyPublic ? cls.getMethod(methodName, parameterTypes) :
+                        cls.getDeclaredMethod(methodName, parameterTypes);
+            } catch (SecurityException | NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return method;
+    }
+
+    public static Method searchOneDoubleArgumentPublicMethod(String className, String methodName) {
+        return searchOneDoubleArgumentMethod(className, methodName, true);
+    }
+
+
+    public static double invokeOneDoubleArgumentStaticMethod(String className, String methodName, double argument) {
+        return invokeOneDoubleArgumentStaticMethod(searchOneDoubleArgumentPublicMethod(className, methodName), argument);
+    }
+
+    public static double invokeOneDoubleArgumentStaticMethod(Method method, double argument) {
+        double result = Double.NaN;
+
+        try {
+            result = Double.parseDouble(method.invoke(null, argument).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }
