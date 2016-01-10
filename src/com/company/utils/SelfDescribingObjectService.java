@@ -155,5 +155,4 @@ public class SelfDescribingObjectService {
 
         return objectProperty;
     }
-
 }
