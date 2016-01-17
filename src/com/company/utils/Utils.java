@@ -31,7 +31,7 @@ public class Utils {
         return MessageFormat.format(CLASS_NAME_PATTERN, object.getClass().getName());
     }
 
-    public static void writeMessage(String message) {
+    public static void printMessage(String message) {
         System.out.println(message);
     }
 
@@ -77,13 +77,13 @@ public class Utils {
     public static String readInputString(String enterMessageInvitation) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        writeMessage(enterMessageInvitation);
+        printMessage(enterMessageInvitation);
 
         do {
             try {
                 return bufferedReader.readLine();
             } catch (IOException e) {
-                writeMessage(MessageFormat.format(PLEASE_REPEAT_ENTER, e.getClass().getName(), e.getMessage()));
+                printMessage(MessageFormat.format(PLEASE_REPEAT_ENTER, e.getClass().getName(), e.getMessage()));
             }
         } while (true);
     }
@@ -92,14 +92,14 @@ public class Utils {
     public static int readInputInt(String enterMessageInvitation) {
         final Scanner scanner = new Scanner(System.in);
 
-        writeMessage(enterMessageInvitation);
+        printMessage(enterMessageInvitation);
         return scanner.nextInt();
     }
 
     public static double readInputDouble(String enterMessageInvitation) {
         final Scanner scanner = new Scanner(System.in);
 
-        writeMessage(enterMessageInvitation);
+        printMessage(enterMessageInvitation);
         return scanner.nextDouble();
     }
 
@@ -114,11 +114,11 @@ public class Utils {
             ObjectProperty objectProperty = object.checkProperty(propertyName);
             String errorMessage = objectProperty.getErrorMessage();
             if (errorMessage.isEmpty()) {
-                writeMessage(MessageFormat.format(PROPERTY_DESCRIPTION_PATTERN, objectProperty.getPropertyType(),
+                printMessage(MessageFormat.format(PROPERTY_DESCRIPTION_PATTERN, objectProperty.getPropertyType(),
                         objectProperty.getRealPropertyName(), className));
             }
             else {
-                writeMessage(errorMessage);
+                printMessage(errorMessage);
             }
         } while (true);
     }

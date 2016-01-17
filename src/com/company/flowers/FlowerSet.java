@@ -34,10 +34,10 @@ public class FlowerSet {
     }
 
     public void showFlowerSet() {
-        Utils.writeMessage(getClass().getName());
+        Utils.printMessage(getClass().getName());
 
         for (int i=0; i < getFlowerCount(); i++) {
-            Utils.writeMessage(getFlowerByIndex(i).toString());
+            Utils.printMessage(getFlowerByIndex(i).toString());
         }
     }
 }

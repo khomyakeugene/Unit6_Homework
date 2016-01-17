@@ -41,14 +41,14 @@ public class MusicShop {
     }
 
     public void showMusicShop() {
-        Utils.writeMessage(getShopName());
+        Utils.printMessage(getShopName());
 
         showAllInstruments();
     }
 
     public void showAllInstruments() {
         for (int i = 0; i < getInstrumentCount(); i++) {
-            Utils.writeMessage(getInstrumentByIndex(i).toString());
+            Utils.printMessage(getInstrumentByIndex(i).toString());
         }
     }
 }

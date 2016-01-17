@@ -61,7 +61,7 @@ public class TestFileData {
         Object[] directoryData = fileList.values().toArray();
 
         for (int i=0; i < commonCount; i++)
-            Utils.writeMessage(MessageFormat.format(FILE_DATA_MESSAGE, i,
+            Utils.printMessage(MessageFormat.format(FILE_DATA_MESSAGE, i,
                     ((SimpleFile)directoryData[i]).getFileName(),
                     ((SimpleFile)directoryData[i]).getFileType()));
         }
@@ -84,22 +84,22 @@ public class TestFileData {
 
             try {
                 SimpleFile simpleFile = directory.getFileByName(fileName);
-                Utils.writeMessage(MessageFormat.format(FILE_WAS_FOUND_PATTERN, simpleFile.getFileName()));
+                Utils.printMessage(MessageFormat.format(FILE_WAS_FOUND_PATTERN, simpleFile.getFileName()));
             } catch (FileNotFoundException e) {
-                Utils.writeMessage(MessageFormat.format(FILE_NOT_FOUND_PATTERN, e.getFileName()));
+                Utils.printMessage(MessageFormat.format(FILE_NOT_FOUND_PATTERN, e.getFileName()));
             }
         } while (true);
     }
 
     private void showFileData() {
-        Utils.writeMessage(Utils.getClassNameMessage(simpleFile));
+        Utils.printMessage(Utils.getClassNameMessage(simpleFile));
 // ---------------
 
-        Utils.writeMessage(Utils.getClassNameMessage(textFile));
-        Utils.writeMessage(MessageFormat.format(TEXT_DATA_MESSAGE, textFile.getText()));
+        Utils.printMessage(Utils.getClassNameMessage(textFile));
+        Utils.printMessage(MessageFormat.format(TEXT_DATA_MESSAGE, textFile.getText()));
 
-        Utils.writeMessage(Utils.getClassNameMessage(audioFile));
-        Utils.writeMessage(Utils.getClassNameMessage(imageFile));
+        Utils.printMessage(Utils.getClassNameMessage(audioFile));
+        Utils.printMessage(Utils.getClassNameMessage(imageFile));
 
         // The first task of unit 6 homework
         Utils.inspectObjectProperties(textFile);
