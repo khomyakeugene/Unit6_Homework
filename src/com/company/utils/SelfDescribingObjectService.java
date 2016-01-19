@@ -66,7 +66,7 @@ public class SelfDescribingObjectService {
             // Just check if field "fieldName" presents
             if (onlyPublic) {
                 cls.getField(fieldName);
-            }
+            } //и все-таки элс пишется на этой строке, сразу через пробел после фигурной скобки
             else {
                 cls.getDeclaredField(fieldName);
             }
