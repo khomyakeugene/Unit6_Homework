@@ -116,8 +116,7 @@ public class Utils {
             if (errorMessage.isEmpty()) {
                 printMessage(MessageFormat.format(PROPERTY_DESCRIPTION_PATTERN, objectProperty.getPropertyType(),
                         objectProperty.getRealPropertyName(), className));
-            }
-            else {
+            } else {
                 printMessage(errorMessage);
             }
         } while (true);

@@ -66,8 +66,7 @@ public class SelfDescribingObjectService {
             // Just check if field "fieldName" presents
             if (onlyPublic) {
                 cls.getField(fieldName);
-            } //и все-таки элс пишется на этой строке, сразу через пробел после фигурной скобки
-            else {
+            } else {
                 cls.getDeclaredField(fieldName);
             }
         } catch (SecurityException e) {
@@ -91,8 +90,7 @@ public class SelfDescribingObjectService {
             // Just check if field "methodName" presents
             if (onlyPublic) {
                 cls.getMethod(methodName);
-            }
-            else {
+            } else {
                 cls.getDeclaredMethod(methodName);
             }
         } catch (SecurityException e) {
@@ -130,8 +128,7 @@ public class SelfDescribingObjectService {
                 // Need to find Getter?
                 if (nextErrorMessage.isEmpty()) {
                     errorMessage = "";
-                }
-                else {
+                } else {
                     // Let's try to find suitable getter
                     String[] gettersNameList = getGettersNameList(object);
                     index = Utils.getIndexInStringArray(gettersNameList, propertyName, true);
