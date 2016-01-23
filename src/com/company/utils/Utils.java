@@ -121,4 +121,18 @@ public class Utils {
             }
         } while (true);
     }
+
+    public static String repeatString(String string, int times) {
+        // Some variant BEFORE Java 8 - store here just as an example of an alternative way
+        // return String.format(String.format("%%%ds", times), "").replace(" ", string);
+        return String.join("", java.util.Collections.nCopies(times, string));
+    }
+
+    public static String repeatChar(Character character, int times) {
+        return repeatString(character.toString(), times);
+    }
+
+    public static String stringStart(String string, int length) {
+        return (string.length() > length) ? string.substring(0, length) : string;
+    }
 }
